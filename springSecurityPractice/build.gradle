@@ -1,6 +1,7 @@
-/*buildscript {
+buildscript {
+	//ext (extra) : 변수 설정
     ext {
-        spring = "2.4.1"
+        spring = "2.6.3"
         boot = "org.springframework.boot"
         lombok = "org.projectlombok:lombok"
     }
@@ -12,13 +13,14 @@
     }
 }
 
+//모든 프로젝트에 설정
 allprojects {
     group = "com.example.demo"
     version = "1.0.0"
 }
 
+//서브 프로젝트에 설정
 subprojects {
-
     apply plugin: "java"
     apply plugin: boot
     apply plugin: "io.spring.dependency-management"
@@ -36,18 +38,17 @@ subprojects {
     }
 
     dependencies {
-        developmentOnly("$boot:spring-boot-devtools")
+        //developmentOnly("$boot:spring-boot-devtools")
         implementation "$boot:spring-boot-starter-security"
         implementation 'com.fasterxml.jackson.core:jackson-annotations'
         
-        implementation 'org.springframework.boot:spring-boot-starter-web'
         runtimeOnly 'com.h2database:h2'
 
         compileOnly lombok
         testCompileOnly lombok
         annotationProcessor lombok
         testAnnotationProcessor lombok
-
+        
         testImplementation "$boot:spring-boot-starter-test"
     }
 
@@ -63,6 +64,7 @@ subprojects {
     subProjectDir.eachDir {dir->
         def projectName = ":${it}-${dir.name}"
         project(projectName){
+        	//부트 어플리케이션을 실행시키는 Gradle Tasks 창 > 각 프로젝트 > build > bootJar를 사용하지 않게 변경
             bootJar.enabled(false)
             jar.enabled(true)
         }
@@ -78,7 +80,7 @@ subprojects {
     }
 }
 
-help.enabled(false)*/
+help.enabled(false)
 
 
 
@@ -87,7 +89,7 @@ help.enabled(false)*/
 
 
 
-plugins {
+/*plugins {
 	id 'org.springframework.boot' version '2.6.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
@@ -98,11 +100,11 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
-/*configurations {
+configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
-}*/
+}
 
 repositories {
 	mavenCentral()
@@ -121,4 +123,4 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
-}
+}*/

@@ -10,10 +10,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 */
 
 @SpringBootApplication
-public class SpringSecurityPracticeApplication {
-
+public class ServerBasicTestApplication {
+	//psvm을 자동 완성하면 main 함수가 된다.
 	public static void main(String[] args) {
-		SpringApplication.run(SpringSecurityPracticeApplication.class, args);
+		Person person = new Person(); //롬복이 일을 안함
+		SpringApplication.run(ServerBasicTestApplication.class, args);
 	}
 
 }

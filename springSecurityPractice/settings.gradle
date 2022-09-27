@@ -1,14 +1,24 @@
+//상위 프로젝트
 rootProject.name = 'springSecurityPractice'
+//하위 프로젝트
+//include ":sub-project1"
+//include ":sub-project2"
 
-/*["comp", "web", "server"].each {
+//★★★ Gradle refresh는 gradle 소스에서 우클릭 > Grade > Refresh Gradle Project를 실행하면 된다.
+//각 디렉토리 안에 새로운 폴더를 만들고 다시 Refresh Gradle Project를 실행하면 해당 폴더는 새로운 프로젝트가 된다.
 
+//모듈 프로젝트들이 많아서 group으로 관리할떄는 자동으로 빌드하는 스크립트를 사용
+["comp", "web", "server"].each {
+
+	//디렉토리 생성
     def compDir = new File(rootDir, it)
     if(!compDir.exists()){
         compDir.mkdirs()
     }
 
+	//각 디렉토리 안에 내부의 디렉토리들을 프로젝트로 만든다.
     compDir.eachDir {subDir ->
-
+    	//build.gradle 존재 여부 파악 후 생성
         def gradleFile = new File(subDir.absolutePath, "build.gradle")
         if(!gradleFile.exists()){
             gradleFile.text =
@@ -20,6 +30,7 @@ rootProject.name = 'springSecurityPractice'
                 
                     """.stripIndent(20)
         }
+        //각 프로젝트마다 디렉토리 자동 생성
         [
                 "src/main/java/com/example/demo",
                 "src/main/resources",
@@ -31,9 +42,9 @@ rootProject.name = 'springSecurityPractice'
                 srcFolder.mkdirs()
             }
         }
-
+		//각 프로젝트명은 each 앞에 있는 배열의 요소 값이 된다.
         def projectName = ":${it}-${subDir.name}";
         include projectName
         project(projectName).projectDir = subDir
     }
-}*/
+}
