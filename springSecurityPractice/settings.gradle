@@ -1,6 +1,6 @@
 rootProject.name = 'springSecurityPractice'
 
-["comp", "web", "server"].each {
+/*["comp", "web", "server"].each {
 
     def compDir = new File(rootDir, it)
     if(!compDir.exists()){
@@ -36,4 +36,4 @@ rootProject.name = 'springSecurityPractice'
         include projectName
         project(projectName).projectDir = subDir
     }
-}
+}*/
