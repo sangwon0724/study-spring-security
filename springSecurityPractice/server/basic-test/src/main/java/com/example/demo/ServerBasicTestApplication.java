@@ -16,6 +16,7 @@ public class ServerBasicTestApplication {
 		//Person person = new Person(); //롬복이 일을 안함
 		//Person person2 = Person.builder().name("test").build();
 		//System.out.println(person);
+		
 		SpringApplication.run(ServerBasicTestApplication.class, args);
 	}
 
