@@ -44,12 +44,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			antMatchers : 필터를 적용할 url 패턴 명시 (예시 : /api/** => /api 이하의 url에 대해서 필터 적용)
 		*/
 		
-		http.authorizeHttpRequests((requests)->requests.antMatchers("/").permitAll().anyRequest().authenticated());
 		//http.formLogin(); //form login 필터 설정
 		//http.httpBasic(); //http basic 필터 설정
 		
+		//http.cors().disable(); //cors 필터 해제
+
 		//http.formLogin().and().authorizeRequests(auth->{auth.anyRequest().permitAll();});
 		
-		//http.cors().disable(); //cors 필터 해제
+		//http.authorizeHttpRequests((requests)->requests.antMatchers("/").permitAll().anyRequest().authenticated());
+		
+		http.headers().disable()
+		.csrf().disable()
+		.formLogin(login->login.defaultSuccessUrl("/",false))
+		.logout().disable()
+		.requestCache().disable();
+		
+		
 	}
 }

@@ -38,11 +38,11 @@ subprojects {
     }
 
     dependencies {
-        //developmentOnly("$boot:spring-boot-devtools")
+        developmentOnly("$boot:spring-boot-devtools")
         implementation "$boot:spring-boot-starter-security"
         implementation 'com.fasterxml.jackson.core:jackson-annotations'
         
-        runtimeOnly 'com.h2database:h2'
+        //runtimeOnly 'com.h2database:h2'
 
         compileOnly lombok
         testCompileOnly lombok
