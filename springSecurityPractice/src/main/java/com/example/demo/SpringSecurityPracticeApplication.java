@@ -13,6 +13,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 	   디렉터리 구조가 아닌 프로젝트 구조로 check out 받게 된다. (Git의 경우)
 */
 
+/*
+ 	1. basic-test
+ 	2. login-basic
+ 	3. login-custom-filter
+ 	4. basic-authentication-test
+*/
+
 @SpringBootApplication
 public class SpringSecurityPracticeApplication {
 
