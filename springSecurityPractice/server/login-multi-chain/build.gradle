@@ -1,0 +1,7 @@
+apply from: "../web-common.gradle"
+
+dependencies {
+
+    //compile project(":web-student-teacher") => 오류, 옛날 문법?
+	implementation project(path: ":web-student-teacher", configuration: 'default')
+}

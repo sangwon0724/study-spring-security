@@ -1,6 +1,6 @@
-//apply from: "../web-common.gradle"
+apply from: "../web-common.gradle"
 
 dependencies {
- 	implementation("$boot:spring-boot-starter-web")
+ 	//implementation("$boot:spring-boot-starter-web")
 }
 

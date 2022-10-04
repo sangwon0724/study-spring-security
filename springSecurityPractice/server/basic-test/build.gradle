@@ -1,11 +1,11 @@
 
 
 dependencies {
-	//implementation("$boot:spring-boot-starter-web") => implementation("$boot:spring-boot-starter-web")
     implementation("$boot:spring-boot-starter-web")
     
     //comp(컴포넌트)나 web같은 서브 프로젝트에서 생성한 클래스들을 사용하려면 각 프로젝트들을 참조시켜야한다.
     //compile project(":[각 모듈 디렉토리명]-[서브 프로젝트 폴더명]") => 어차피 합쳐져서 Project Explorer 창에 나오니 그거 보면 된다.
-   // compile project(":comp-common-utils")
+    //compile project(":comp-common-utils") => 오류, 옛날 문법?
+	implementation project(path: ":comp-common-utils", configuration: 'default')
 }
 
