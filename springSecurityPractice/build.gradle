@@ -31,7 +31,8 @@ subprojects {
     }
 
     configurations {
-        developmentOnly
+    	//개발자 옵션이 있으면 기존 로그인 정보로 자동 로그인이 되기 때문에 개발자옵션을 모두 끄고 서버를 테스트 해야 한다.
+        //developmentOnly
         runtimeClasspath {
             extendsFrom developmentOnly
         }
@@ -39,7 +40,7 @@ subprojects {
 
     dependencies {
  		//implementation("$boot:spring-boot-starter-web")
-        developmentOnly("$boot:spring-boot-devtools")
+        //developmentOnly("$boot:spring-boot-devtools")
         implementation "$boot:spring-boot-starter-security"
         implementation 'com.fasterxml.jackson.core:jackson-annotations'
 
