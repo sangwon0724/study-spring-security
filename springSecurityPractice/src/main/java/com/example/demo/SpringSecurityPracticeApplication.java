@@ -19,6 +19,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  	3. login-custom-filter
  	4. basic-authentication-test
  	5. login-multi-chain
+ 	6. login-userdetails
+ 	7. login-rememberme
 */
 
 @SpringBootApplication
