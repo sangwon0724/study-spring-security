@@ -21,6 +21,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  	5. login-multi-chain
  	6. login-userdetails
  	7. login-rememberme (로그인 기억하기)
+ 	8. login-session-management (세션 관리)
 */
 
 @SpringBootApplication
