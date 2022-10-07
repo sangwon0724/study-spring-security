@@ -22,6 +22,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  	6. login-userdetails
  	7. login-rememberme (로그인 기억하기)
  	8. login-session-management (세션 관리)
+ 	9. authority-test (권한 관리)
+ 		1) 권한 테스트 <= 진행중
+ 		2) voter
+ 		3) 메소드의 후처리
+ 		4) Secured 기반 권한 체크
+ 		5) 도메인 객체 보안 (ACL)
 */
 
 @SpringBootApplication

@@ -1,0 +1,6 @@
+dependencies {
+    implementation("$boot:spring-boot-starter-web")
+
+    //testCompile project(":test-web-util")
+	implementation project(path: ":test-web-util", configuration: 'default')
+}
