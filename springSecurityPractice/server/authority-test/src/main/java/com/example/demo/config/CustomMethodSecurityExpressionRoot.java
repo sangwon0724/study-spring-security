@@ -1,5 +1,6 @@
 package com.example.demo.config;
 
+import com.example.demo.service.Paper;
 import lombok.Getter;
 import lombok.Setter;
 import org.aopalliance.intercept.MethodInvocation;
@@ -39,6 +40,14 @@ public class CustomMethodSecurityExpressionRoot extends SecurityExpressionRoot
                 .filter(a->a.getAuthority().equals("ROLE_TUTOR"))
                 .findAny()
                 .isPresent();
+    }
+
+    /*
+     @PostFilter("filterObject.state != T(com.example.demo.service.Paper.State).PREAPARE")
+     위의 어노테이션 대신에 사용
+    */
+    public boolean notPrepareSate(Paper paper){
+        return paper.getState() != com.example.demo.service.Paper.State.PREPARE;
     }
 
     @Override

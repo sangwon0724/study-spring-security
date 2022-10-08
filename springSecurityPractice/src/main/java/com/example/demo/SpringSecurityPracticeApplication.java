@@ -24,8 +24,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  	8. login-session-management (세션 관리)
  	9. authority-test (권한 관리)
  		1) 권한 테스트
- 		2) voter <= 진행중
- 		3) 메소드의 후처리
+ 		2) voter
+ 		3) 메소드의 후처리 <= 진행중
  		4) Secured 기반 권한 체크
  		5) 도메인 객체 보안 (ACL)
 */

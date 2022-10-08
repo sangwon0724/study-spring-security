@@ -37,9 +37,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 )
                 .withUser(
                         User.withDefaultPasswordEncoder()
-                            .username("tutor1")
-                            .password("1111")
-                            .roles("USER", "TUTOR")
+                        .username("tutor1")
+                        .password("1111")
+                        .roles("USER", "TUTOR")
                 );
     }
 
@@ -66,7 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Autowired
-    private NameCheck nameCheck; //config 패키지에 있음
+    private NameCheck nameCheck;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -76,9 +76,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests(
                         authority->authority
                                 	.mvcMatchers("/greeting/{name}")
-                                    .access("@nameCheck.check(#name)")
-                                    .anyRequest().authenticated()
-                                    //.accessDecisionManager(filterAccessDecisionManager())
+                                	.access("@nameCheck.check(#name)")
+                                	.anyRequest().authenticated()
+                                	//.accessDecisionManager(filterAccessDecisionManager())
                 );
     }
 }
