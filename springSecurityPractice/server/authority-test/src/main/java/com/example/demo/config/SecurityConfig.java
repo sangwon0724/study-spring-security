@@ -1,5 +1,6 @@
 package com.example.demo.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.AccessDecisionManager;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.ConfigAttribute;
@@ -21,13 +22,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
-        .inMemoryAuthentication()
-        .withUser(
-        		User.withDefaultPasswordEncoder()
-                .username("user1")
-                .password("1111")
-                .roles("USER")
-        );
+                .inMemoryAuthentication()
+                .withUser(
+                        User.withDefaultPasswordEncoder()
+                        .username("user1")
+                        .password("1111")
+                        .roles("USER", "STUDENT")
+                )
+                .withUser(
+                        User.withDefaultPasswordEncoder()
+                        .username("user2")
+                        .password("1111")
+                        .roles("USER", "STUDENT")
+                )
+                .withUser(
+                        User.withDefaultPasswordEncoder()
+                            .username("tutor1")
+                            .password("1111")
+                            .roles("USER", "TUTOR")
+                );
     }
 
     FilterSecurityInterceptor filterSecurityInterceptor;
@@ -52,19 +65,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         };
     }
 
+    @Autowired
+    private NameCheck nameCheck; //config 패키지에 있음
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-        .csrf().disable()
-        .httpBasic()
-        .and()
-        .authorizeRequests(
-        		authority->authority
-                           .mvcMatchers("/greeting")
-                           .hasRole("USER")
-                           .anyRequest()
-                           .authenticated()
-                           //.accessDecisionManager(filterAccessDecisionManager())
-        );
+                .csrf().disable()
+                .httpBasic().and()
+                .authorizeRequests(
+                        authority->authority
+                                	.mvcMatchers("/greeting/{name}")
+                                    .access("@nameCheck.check(#name)")
+                                    .anyRequest().authenticated()
+                                    //.accessDecisionManager(filterAccessDecisionManager())
+                );
     }
 }

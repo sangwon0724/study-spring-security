@@ -14,15 +14,13 @@ public class HomeController {
 
     private final SecurityMessageService securityMessageService;
 
-    //생성자 주입
     public HomeController(SecurityMessageService securityMessageService) {
         this.securityMessageService = securityMessageService;
     }
 
-    @PreAuthorize("hasRole('USER')")
     @GetMapping("/greeting/{name}")
     public String greeting(@PathVariable String name){
-        return "hello " + securityMessageService.message(name);
+        return "hello "+securityMessageService.message(name);
     }
 
 }
