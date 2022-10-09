@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.AccessDecisionManager;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.ConfigAttribute;
+import org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor;
+import org.springframework.security.access.method.MethodSecurityMetadataSource;
 import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,6 +20,9 @@ import java.util.Collection;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    MethodSecurityInterceptor methodSecurityInterceptor;
+    MethodSecurityMetadataSource methodSecurityMetadataSource;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -71,14 +76,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()
-                .httpBasic().and()
-                .authorizeRequests(
-                        authority->authority
-                                	.mvcMatchers("/greeting/{name}")
-                                	.access("@nameCheck.check(#name)")
-                                	.anyRequest().authenticated()
-                                	//.accessDecisionManager(filterAccessDecisionManager())
-                );
+            .csrf().disable()
+            .httpBasic()
+            .and()
+            .authorizeRequests(
+                    authority->authority
+                            .mvcMatchers("/greeting/{name}")
+                            .access("@nameCheck.check(#name)")
+                            .anyRequest()
+                            .authenticated()
+                            //.accessDecisionManager(filterAccessDecisionManager())
+            );
     }
 }
