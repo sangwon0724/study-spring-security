@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 
+import com.example.demo.config.CustomSecurityTag;
 import com.example.demo.service.Paper;
 import com.example.demo.service.PaperService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,16 +33,23 @@ public class PaperController {
         return paperService.getMyPapers(user.getUsername());
     }
 
+    @Secured({"ROLE_USER", "RUN_AS_PRIMARY"})
+    @GetMapping("/allpapers")
+    public List<Paper> allpapers(@AuthenticationPrincipal User user){
+        return paperService.getAllPapers();
+    }
+
+    @CustomSecurityTag("SCHOOL_PRIMARY")
+    @Secured({"SCHOOL_PRIMARY"})
+    @GetMapping("/papersByPrimary")
+    public List<Paper> papersByPrimary(){
+        return paperService.getAllPapers();
+    }
+
     //@PreAuthorize("hasPermission(#paperId, 'paper', 'read')")
     @PostAuthorize("returnObject.studentIds.contains(principal.username)")
     @GetMapping("/get/{paperId}")
     public Paper getPaper(@AuthenticationPrincipal User user, @PathVariable Long paperId){
         return paperService.getPaper(paperId);
-    }
-
-    @Secured({"SCHOOL_PRIMARY"})
-    @GetMapping("/papersByPrimary")
-    public List<Paper> papersByPrimary(){
-        return paperService.getAllPapers();
     }
 }

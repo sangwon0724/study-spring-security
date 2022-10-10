@@ -26,8 +26,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  		1) 권한 테스트
  		2) voter
  		3) 메소드의 후처리
- 		4) Secured 기반 권한 체크 <= 진행중
- 		5) 도메인 객체 보안 (ACL)
+ 		4) Secured 기반 권한 체크
+ 		5) 임시권한 부여 <= 진행중
 */
 
 @SpringBootApplication
