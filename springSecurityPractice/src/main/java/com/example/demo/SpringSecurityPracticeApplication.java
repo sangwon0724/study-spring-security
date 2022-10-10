@@ -11,23 +11,25 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 	   정상적으로 그래들이 연동된 상태의 프로젝트를 연결할수 있다.
 	3. 멀티 모듈의 경우 [Git Repositories > Working Tree에서 해당 모듈 선택 > 우클릭 > Import Projects...]를 진행하면
 	   디렉터리 구조가 아닌 프로젝트 구조로 check out 받게 된다. (Git의 경우)
+	4. Gradle Refresh가 정상적으로 진행이 안될 경우 : C:\Users\[유저명]\.gradle\caches 폴더에 있는 데이터 싹 다 제거 후 재시도
 */
 
 /*
- 	1. basic-test
- 	2. login-basic
- 	3. login-custom-filter
- 	4. basic-authentication-test
- 	5. login-multi-chain
- 	6. login-userdetails
- 	7. login-rememberme (로그인 기억하기)
- 	8. login-session-management (세션 관리)
- 	9. authority-test (권한 관리)
+ 	01. basic-test
+ 	02. login-basic
+ 	03. login-custom-filter
+ 	04. basic-authentication-test
+ 	05. login-multi-chain
+ 	06. login-userdetails
+ 	07. login-rememberme (로그인 기억하기)
+ 	08. login-session-management (세션 관리)
+ 	09. authority-test (권한 관리)
  		1) 권한 테스트
  		2) voter
  		3) 메소드의 후처리
  		4) Secured 기반 권한 체크
- 		5) 임시권한 부여 <= 진행중
+ 		5) 임시권한 부여
+ 	10. authority-acl (도메인 객체 보안 : ACL)
 */
 
 @SpringBootApplication
