@@ -25,6 +25,7 @@ subprojects {
     apply plugin: boot
     apply plugin: "io.spring.dependency-management"
     apply plugin: "idea"
+    apply plugin: "java-test-fixtures" //Gradle 5.6 이상
 
     repositories {
         mavenCentral()

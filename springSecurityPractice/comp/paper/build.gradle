@@ -1,0 +1,12 @@
+dependencies {
+    implementation("$boot:spring-boot-starter-data-jpa")
+
+    implementation("com.h2database:h2")
+    //testRuntime("com.h2database:h2")
+
+    //compile project(":comp-paper-user")
+	implementation project(path: ":comp-paper-user", configuration: 'default')
+	//testCompile project(":comp-paper-user").sourceSets.test.output
+	//testImplementation project(":comp-paper-user").sourceSets.test.output
+  	testImplementation(testFixtures(project(":comp-paper-user"))) //Gradle 5.6 이상
+}
