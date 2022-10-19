@@ -40,6 +40,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 	[comp]
 	 	01. paper-user (도메인 : 학교, 선생님, 학생)
 	 	02. paper (시험지)
+	 	
+	[server]
+		01. paper-app
+	 	
+	[web]
+		01. site-manager
+		02. site-student
+		03. site-teacher
 */
 
 @SpringBootApplication

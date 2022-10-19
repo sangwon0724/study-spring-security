@@ -1,0 +1,19 @@
+apply from: "../web-common.gradle"
+
+dependencies {
+
+    implementation("$boot:spring-boot-starter-data-jpa")
+    //runtime("mysql:mysql-connector-java")
+    implementation("mysql:mysql-connector-java")
+
+    //compile project(":comp-paper")
+    //compile project(":comp-paper-user")
+    //compile project(":web-site-manager")
+    //compile project(":web-site-student")
+    //compile project(":web-site-teacher")
+	implementation project(path: ":comp-paper", configuration: 'default')
+	implementation project(path: ":comp-paper-user", configuration: 'default')
+	implementation project(path: ":web-site-manager", configuration: 'default')
+	implementation project(path: ":web-site-student", configuration: 'default')
+	implementation project(path: ":web-site-teacher", configuration: 'default')
+}
