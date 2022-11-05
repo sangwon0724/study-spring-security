@@ -1,5 +1,7 @@
 package com.example.demo.site.manager.controller;
 
+import com.example.demo.site.manager.controller.vo.StudyData;
+import com.example.demo.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -7,8 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.example.demo.user.service.UserService;
 
 @Controller
 @RequestMapping("/manager/study")
@@ -24,7 +24,9 @@ public class StudyMngController {
             Model model
     ){
         model.addAttribute("menu", "study");
-
+        Page<StudyData> studyList = userService.listStudents(pageNum, size)
+                .map(s->new StudyData(s.getSchool().getName(), s.getUserId(), s.getName(), s.getEmail(), s.getGrade()));
+        model.addAttribute("page", studyList);
         return "manager/study/list.html";
     }
 
