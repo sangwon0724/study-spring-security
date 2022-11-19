@@ -3,4 +3,14 @@ apply from: "../web-common.gradle"
 dependencies {
     implementation("com.auth0:java-jwt:3.16.0")  //auth0.com
     implementation("io.jsonwebtoken:jjwt:0.9.1") // okta
+
+    implementation("$boot:spring-boot-starter-data-jpa")
+
+    //testRuntime("com.h2database:h2")
+    implementation("com.h2database:h2")
+
+    //compile project(":comp-user-admin")
+	implementation project(path: ":comp-user-admin", configuration: 'default')
+    //testCompile project(":test-web-util")
+	implementation project(path: ":test-web-util", configuration: 'default')
 }
