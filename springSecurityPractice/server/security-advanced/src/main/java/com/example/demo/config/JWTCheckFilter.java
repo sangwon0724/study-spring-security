@@ -1,5 +1,6 @@
 package com.example.demo.config;
 
+import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.example.demo.user.domain.SpUser;
 import com.example.demo.user.service.SpUserService;
 import org.springframework.http.HttpHeaders;
@@ -20,7 +21,6 @@ public class JWTCheckFilter extends BasicAuthenticationFilter {
 
     private SpUserService userService;
 
-    //생성자 주입
     public JWTCheckFilter(AuthenticationManager authenticationManager, SpUserService userService) {
         super(authenticationManager);
         this.userService = userService;
@@ -43,7 +43,7 @@ public class JWTCheckFilter extends BasicAuthenticationFilter {
             SecurityContextHolder.getContext().setAuthentication(userToken);
             chain.doFilter(request, response);
         }else{
-            throw new AuthenticationException("Token is not valid");
+            throw new TokenExpiredException("Token is not valid");
         }
     }
 

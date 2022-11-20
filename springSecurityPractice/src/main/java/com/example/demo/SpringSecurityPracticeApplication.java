@@ -32,7 +32,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 	 		4) Secured 기반 권한 체크
 	 		5) 임시권한 부여
 	 	10. authority-acl (도메인 객체 보안 : ACL)
-	 	11. server-security-advanced (JWT + Auth Token)
+	 	11. server-security-advanced (JWT + Auth Token + Refresh Token)
 */
 
 /*

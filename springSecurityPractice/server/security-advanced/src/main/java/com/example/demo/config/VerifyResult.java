@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class VerifyResult {
+
     private boolean success;
     private String username;
+
 }
