@@ -33,6 +33,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 	 		5) 임시권한 부여
 	 	10. authority-acl (도메인 객체 보안 : ACL)
 	 	11. server-security-advanced (JWT + Auth Token + Refresh Token)
+	 	12. sns-logins (oauth2)
 */
 
 /*
