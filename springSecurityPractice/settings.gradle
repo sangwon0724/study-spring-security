@@ -8,7 +8,7 @@ rootProject.name = 'springSecurityPractice'
 //각 디렉토리 안에 새로운 폴더를 만들고 다시 Refresh Gradle Project를 실행하면 해당 폴더는 새로운 프로젝트가 된다.
 
 //모듈 프로젝트들이 많아서 group으로 관리할떄는 자동으로 빌드하는 스크립트를 사용
-["comp", "test", "web", "server"].each {
+["comp", "test", "web", "server", "summary"].each {
 
 	//디렉토리 생성
     def compDir = new File(rootDir, it)
