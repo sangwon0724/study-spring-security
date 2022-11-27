@@ -2,4 +2,8 @@ apply from: "../web-common.gradle"
 
 dependencies {
     implementation("$boot:spring-boot-starter-oauth2-client")
+
+    implementation("com.h2database:h2")
+
+	implementation project(path: ":comp-user-admin", configuration: 'default')
 }
